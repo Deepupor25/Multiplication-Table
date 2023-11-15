@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+</head>
+    <style>
+        body{
+            background-color: blanchedalmond;
+        }
+        #main{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            /* background-color: blueviolet; */
+            width: 700px;
+            margin-left: 500px;
+            padding: 40px;
+        }
+    </style>
+<body>
+    <main id="main">
+        <label for="table"><h1>Enter a number:</h1></label>
+        <input id="table" type="number" min="1" max="20" style="border: none; border-radius: 5px; padding: 10px;">
+        <button onclick="generate()" style="border: none; background-color: brown; color: beige;border-radius: 3px; padding: 9px;"><h3>Generate Table</h3></button>
+        <div id="display"></div>
+    </main>
+    
+    <script>
+        function generate() {
+            let tableValue = document.getElementById("table").value;
+
+            if (!tableValue || tableValue < 1 || tableValue > 20) {
+                alert("Please enter a number between 1 and 20.");
+                return;
+            }
+
+            let display = document.getElementById("display");
+            display.innerHTML = ""; 
+
+            let index = 1;
+            while (index <= 12) {
+                let result = tableValue * index;
+                let multiplicationText = `${tableValue} * ${index} = ${result}`;
+                display.innerHTML += `<h2 style="border: 3px solid rgb(29, 27, 27); background-color: antiquewhite; font-family: 'Times New Roman', Times, serif;">${multiplicationText}</h2>`;
+                index++;
+            }
+        }
+    </script>
+</body>
+</html>
